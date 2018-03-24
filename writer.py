@@ -26,7 +26,7 @@ class ChapterWriter:
 		self.write(new_text)
 		
 	def end(self):
-		self.text += '\n'
+		self.text += '[Made with Love and https://github.com/W01fw00d/chapter_writer.git]'
 		self.text_file.write(self.text)
 		self.text_file.close()
 
