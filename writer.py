@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 
-class ChapterWriter:
-	def __init__(self, text_file_name, writer, chapter_number, title):
+class Writer:
+	def __init__(self, writer, chapter_number, title):
+		type_of_file = '.txt'
+	
 		self.line_limit = 80
 		self.text = ''
-		self.text_file = open(text_file_name, 'w')
+		self.text_file = open('chapter_' + str(chapter_number) + type_of_file, 'w')
 		self.head(chapter_number, title, writer)
+		self.footer = '[Made with Love and https://github.com/W01fw00d/chapter_writer.git]'
 		
 	def head(self, chapter_number, title, writer):
 		self.text += "%s. %s" % (chapter_number, title)
@@ -26,21 +29,6 @@ class ChapterWriter:
 		self.write(new_text)
 		
 	def end(self):
-		self.text += '[Made with Love and https://github.com/W01fw00d/chapter_writer.git]'
+		self.text += self.footer
 		self.text_file.write(self.text)
 		self.text_file.close()
-
-
-file_name = 'chapter.txt'	
-writer_name = 'Gabo'
-chapter_number = 6
-chapter_title = 'Patrones'
-
-write = ChapterWriter(file_name, writer_name, chapter_number, chapter_title)		
-
-write.narrate('Era un nuevo día en la bella Barceloneta. Hacia mucho viente, y las banderas independendistas parecían a punto de reclamar su propia independencia respecto a los balcones que las sujetaban')
-write.narrate('Poco sospechaba Úrsula que aquel seria el día de su propia muerte')
-
-write.end()
-
-
