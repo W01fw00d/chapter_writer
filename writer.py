@@ -6,7 +6,8 @@ class Writer:
 	
 		self.line_limit = 80
 		self.text = ''
-		self.text_file = open('chapter_' + str(chapter_number) + type_of_file, 'w')
+		self.file_name = 'chapter_' + str(chapter_number) + type_of_file
+		self.text_file = open(self.file_name, 'w')
 		self.head(chapter_number, title, writer)
 		self.footer = '[Made with Love and https://github.com/W01fw00d/chapter_writer.git]'
 		
@@ -32,3 +33,4 @@ class Writer:
 		self.text += self.footer
 		self.text_file.write(self.text)
 		self.text_file.close()
+		print(self.file_name + ' succesfully created')

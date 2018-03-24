@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from Writer import Writer
+from writer import Writer
 
 writer_name = 'Gabo'
 chapter_number = 6
