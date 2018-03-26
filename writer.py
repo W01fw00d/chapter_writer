@@ -43,6 +43,13 @@ class Writer:
 	def narrate(self, new_text):
 		self.writeParagraph(new_text)
 		
+	def changeContext(self, new_text):
+		formatted_text = '-- ' + new_text + ' '
+		sufix_decorator_multiplier = self.line_limit - len(formatted_text)
+		sufix_decorator_multiplier = sufix_decorator_multiplier if (sufix_decorator_multiplier >= 0) else 0
+	
+		self.text += formatted_text + (sufix_decorator_multiplier * '-') + ('\n' * 2)
+		
 	def end(self):
 		self.text += self.footer
 		self.text_file.write(self.text)
