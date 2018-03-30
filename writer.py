@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from character import Character
+
 class Writer:
 	def __init__(self, author, chapter_number, title):
 		type_of_file = '.txt'
@@ -8,10 +10,19 @@ class Writer:
 
 		self.text = ''
 		self.word_count = len(title.split())
+		self.characters = {}
 
 		self.text_file = open(self.file_name, 'w')
 		self.head(chapter_number, title, author)
 		self.footer = '[Made with Love and https://github.com/W01fw00d/chapter_writer.git]'
+
+	def addCharacter(self, identificator, names):
+		character = Character(names)
+		self.characters[identificator] = character
+
+	def say(self, identificator, input_text):
+		text = ' - ' + input_text + ' - ' + ' dijo ' + self.characters[identificator].getRandomName() + '.'
+		self.writeParagraph(text)
 		
 	def head(self, chapter_number, title, writer):
 		self.text += "%s. %s" % (chapter_number, title)
@@ -21,7 +32,6 @@ class Writer:
 		self.text += '\n'
 		
 	def writeParagraph(self, input_text):
-		#input_text += '.'
 		splitted_text = input_text.split()
 		next_text = ''
 		current_line = ''
