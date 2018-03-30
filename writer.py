@@ -22,7 +22,7 @@ class Writer:
 		character = Character(names)
 		self.characters[identificator] = character
 
-	def say(self, identificator, input_text):
+	def addDialog(self, identificator, input_text):
 		text = ' - ' + input_text + ' - ' + self.dictionary.getRandomSayVerb() + ' ' + self.characters[identificator].getRandomName() + '.'
 		self.writeParagraph(text)
 
@@ -55,14 +55,14 @@ class Writer:
 	def narrate(self, new_text):
 		self.writeParagraph(new_text)
 
-	def intermission(self, new_text):
+	def addIntermission(self, new_text):
 		formatted_text = '-- ' + self.dictionary.getRandomIntermissionAdverb() + ', ' + new_text + ' '
 		sufix_decorator_multiplier = self.line_limit - len(formatted_text)
 		sufix_decorator_multiplier = sufix_decorator_multiplier if (sufix_decorator_multiplier >= 0) else 0
 	
 		self.text += formatted_text + (sufix_decorator_multiplier * '-') + ('\n' * 2)
 
-	def end(self):
+	def finish(self):
 		self.text += self.footer
 		self.text_file.write(self.text)
 		self.text_file.close()
