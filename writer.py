@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from dictionary import Dictionary
 from character import Character
 
 class Writer:
@@ -7,6 +8,7 @@ class Writer:
 		type_of_file = '.txt'
 		self.line_limit = 90
 		self.file_name = 'chapter_' + str(chapter_number) + type_of_file
+		self.dictionary = Dictionary()
 
 		self.text = ''
 		self.word_count = len(title.split())
@@ -21,16 +23,16 @@ class Writer:
 		self.characters[identificator] = character
 
 	def say(self, identificator, input_text):
-		text = ' - ' + input_text + ' - ' + ' dijo ' + self.characters[identificator].getRandomName() + '.'
+		text = ' - ' + input_text + ' - ' + self.dictionary.getRandomSayVerb() + ' ' + self.characters[identificator].getRandomName() + '.'
 		self.writeParagraph(text)
-		
+
 	def head(self, chapter_number, title, writer):
 		self.text += "%s. %s" % (chapter_number, title)
 		self.text += '\n'
 		self.text += "by %s" % writer
 		self.text += '\n'
 		self.text += '\n'
-		
+
 	def writeParagraph(self, input_text):
 		splitted_text = input_text.split()
 		next_text = ''
@@ -49,20 +51,20 @@ class Writer:
 		next_text += current_line + '\n'
 			
 		self.text += next_text + '\n'
-		
+
 	def narrate(self, new_text):
 		self.writeParagraph(new_text)
-		
-	def changeContext(self, new_text):
-		formatted_text = '-- ' + new_text + ' '
+
+	def intermission(self, new_text):
+		formatted_text = '-- ' + self.dictionary.getRandomIntermissionAdverb() + ', ' + new_text + ' '
 		sufix_decorator_multiplier = self.line_limit - len(formatted_text)
 		sufix_decorator_multiplier = sufix_decorator_multiplier if (sufix_decorator_multiplier >= 0) else 0
 	
 		self.text += formatted_text + (sufix_decorator_multiplier * '-') + ('\n' * 2)
-		
+
 	def end(self):
 		self.text += self.footer
 		self.text_file.write(self.text)
 		self.text_file.close()
-		print(self.file_name + ' succesfully created')
+		print('"' + self.file_name + '" succesfully created')
 		print('Words: ' + str(self.word_count))
