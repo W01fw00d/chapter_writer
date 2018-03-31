@@ -56,7 +56,7 @@ class Writer:
 		self.writeParagraph(new_text)
 
 	def addIntermission(self, new_text):
-		formatted_text = '-- ' + self.dictionary.getRandomIntermissionAdverb() + ', ' + new_text + ' '
+		formatted_text = '--- ' + self.dictionary.getRandomIntermissionAdverb() + ', ' + new_text + ' '
 		sufix_decorator_multiplier = self.line_limit - len(formatted_text)
 		sufix_decorator_multiplier = sufix_decorator_multiplier if (sufix_decorator_multiplier >= 0) else 0
 	
