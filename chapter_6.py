@@ -1,14 +1,22 @@
 # -*- coding: utf-8 -*-
 
-from writer import Writer
+from theater_writer import TheaterWriter
+from novel_writer import NovelWriter
 
 author = 'Gabo'
 chapter_number = 6
 chapter_title = 'Patrons'
 
-writer = Writer(author, chapter_number, chapter_title)		
+writer = TheaterWriter(author, chapter_number, chapter_title)		
 
-#writer.addCharacter('ursula', ['Úrsula', 'la asesina', 'la periodista', 'la criminal'])
+writer.addCharacter('andreu', ['Andreu Pasternak', 'el huérfano', 'el vengador', 'el niño bien', 'el heredero','Pasternak junior', 'Pasternak hijo', 'Andreu'])
+writer.addCharacter('magrebi', ['el magrebí', 'el jefe', 'el traficante', 'el extranjero'])
+writer.addCharacter('claudia', ['Clàudia', 'la policía', 'la chica hidrocarburo', 'la sotinspectora'])
+writer.addCharacter('viladrau', ['Viladrau', 'el inspector', 'el inspector Viladrau'])
+writer.addCharacter('freeman', ['Jordan Freeman', 'Jordan', 'Freeman', 'el ser artificial', 'el robot', 'el viejo'])
+writer.addCharacter('musk', ['Nikola Musk', 'Nikola', 'el señor Musk', 'el inventor', 'el multimillonario', 'el CO de Hooper Tech'])
+writer.addCharacter('cardenales', ['Carnedales', 'la inspectora Cardenales', 'la inspectora de la CNP', 'la tuerta'])
+writer.addCharacter('abdal', ['Abdal', 'el enchufado', 'el magreví junior', 'el matón familiar'])
 
 writer.narrate('Era un nuevo día en la bella Barceloneta, aunque el cielo seguía oscuro como en noche cerrada. Hacía mucho viento, y las señeras parecían a punto de reclamar su propia independencia respecto a los balcones que las sujetaban.')
 writer.narrate('Poco sospechaba Úrsula que aquel seria el día de su propia muerte. Es decir, no es que fuera a morir ese día, simplemente que no pensaba en ello. Estaba tranquila, en contraste con la paranoia de los últimos días.')
@@ -16,11 +24,9 @@ writer.narrate('La asesina de Pasternak había dedicado la última noche a medit
 
 writer.addIntermission('a bastantes metros bajo tierra')
 
-writer.addCharacter('andreu', ['Andreu Pasternak', 'el huérfano', 'el vengador', 'el niño bien', 'el heredero','Pasternak junior', 'Pasternak hijo', 'Andreu'])
 writer.addDialog('andreu', '¡¿Qué es esta puta mierda?!')
 writer.narrate('Pasternak hijo lanzó el librito sobre la mesa, sin obtener reacción alguna de su interlocutor más allá de la sorna y la despreocupación.')
 writer.narrate('Se encontraba en una improvisada sala de los subterráneos de Barcelona, la cual había sido creada a partir de uno de los largos túneles, básicamente cubriendo los dos extremos con muros de ladrillo y colocando una puerta en cada uno. Ante él, un hombre magrebí armado descansaba sobre un taburete, con matones iguamente armados cubriéndole derecha e izquierda.')
-writer.addCharacter('magrebi', ['el magrebí', 'el jefe', 'el traficante', 'el extranjero'])
 writer.addDialog('magrebi', 'Papel. Uno no puede andar registrando ventas de codificadores de ADN en la nube: los bots de google te encontrarían en medio segundo')
 writer.narrate('Andreu golpeó la mesa con ambos brazos, ante lo cual los dos guardias hicieron ademán de empuñar sus pistolas. El magrebí les detuvo con un gesto.')
 writer.addDialog('andreu', '¿Me estás diciendo que el codificador que se utilizó en el... asesinato de mi padre... fue comprado por él mismo?')
@@ -32,8 +38,6 @@ writer.narrate('Pasternak entrecerró los ojos: no pensaba dejarle a ese capullo
 
 writer.addIntermission('en la base central dels mossos')
 
-writer.addCharacter('claudia', ['Clàudia', 'la policía', 'la chica hidrocarburo', 'la sotinspectora'])
-writer.addCharacter('viladrau', ['Viladrau', 'el inspector', 'el inspector Viladrau'])
 writer.addDialog('viladrau', 'Has enviat a la caríssima IA d\'en Nikola Musk a què s\'infiltri a una guarida de traficants de codificadors?!')
 writer.narrate('Él y su sotinspectora, Clàudia, se encontraban en una sala llena de agentes moviéndose de arriba a abajo. Varios de ellos se pararon a mirar a la pareja, pero Clàudia les indicó con la mirada que no era buena idea meterse en sus asuntos.')
 writer.addDialog('claudia', 'Freeman es va oferir, inspector. I tenint en compte la perillositat de la missió, i que en Pasternak a mi ja em coneix, pareixia l\'opció més lògica')
@@ -42,7 +46,6 @@ writer.narrate('Vilarnau tragó saliva y cogió su dispositivo. Dibujó el patr�
 
 writer.addIntermission('a muchos metros bajo tierra')
 
-writer.addCharacter('freeman', ['Jordan Freeman', 'Jordan', 'Freeman', 'el ser artificial', 'el robot', 'el viejo'])
 writer.addDialog('freeman', 'Buenas tardes, me han comentado que aquí puedo encontrar codificadores de... un momento, ¿Qué es ese ruido?')
 writer.addDialog('magrebi', '¿Cómo? Yo no oigo nada...')
 writer.addDialog('freeman', '¡Shhh...! Creo que viene de esa pared de la derecha...')
@@ -57,7 +60,6 @@ writer.narrate('Úrsula sonrió para sí. Sostenía aún el dispositivo de contr
 
 writer.addIntermission('en algún lugar del cielo barcelonés')
 
-writer.addCharacter('musk', ['Nikola Musk', 'Nikola', 'el señor Musk', 'el inventor', 'el multimillonario', 'el CO de Hooper Tech'])
 writer.narrate('Nikola Musk miró el móvil que sostenía en su mano derecha con indiferencia. En los altavoces del aparato sonaba el buzón de voz. Parecía que el inspector andaba muy ocupado.')
 writer.narrate('El magnate suspiró y dio un sorbo a su mojito. Desde la ventanilla del avión podía ver la sagrada familia: la primera vez que la veía terminada. Una maravilla, sin duda... aunque no parecía merecer tanta espera. Sacudió la cabeza: no lograba quitarse de encima esa preocupación por el bienestar de Jordan Freeman. Había perdido la señal del localizador, lo cual podía deberse a un fallo o... que se encontrara en algún lugar incomunicado.')
 writer.addDialog('musk', 'Es como dar diamantes a los cerdos... no saben aprovechar el potencial de mis productos... siempre se repite el mismo patrón con los humanos')
@@ -68,11 +70,11 @@ writer.narrate('Freeman nunca perdía la conciencia, por lo que presenció todo 
 writer.narrate('Parte del túnel se había derrumbado con un estruendo, y la instalación eléctrica había fallado; por lo que se encontraban a oscuras. Él no podía desplazarse con normalidad, pues parte del muro había caído sobre su cuerpo, aprisionándole ambas piernas. No podía hacer más que apoyarse con los codos sobre el suelo cual adolescente en una fiesta de pijamas y llamar a los humanos supervivientes. No sentía dolor, pero la situación le resultaba harto frustrante.')
 writer.narrate('Jordan escuchó un gemido unos metros más allá. Parecía una voz femenina, por lo que debía tratarse de la tuerta.')
 writer.addDialog('freeman', '¡Inspectora Cardenales! ¿Se encuentra bien?')
-writer.addCharacter('cardenales', ['Carnedales', 'la inspectora Cardenales', 'la inspectora de la CNP', 'la tuerta'])
+
 writer.addDialog('cardenales', '... joder... ¡Calla puto robot! No te cargues mi tapadera... aquí soy una matona más del magrebí...')
 writer.addDialog('freeman', '... ¿Cree que siguen vivos?')
 writer.addDialog('cardenales', 'No sé... a ver, espera creo que estoy tocando un cuerpo... joder que oscuro está todo... ahh, mi cabeza... ¡Ah! Estoy tocando una cara... creo que es la del chaval del magrebí, su sobrino-nieto o algo así... Abdal')
-writer.addCharacter('abdal', ['Abdal', 'el enchufado', 'el magreví junior', 'el matón familiar'])
+
 writer.addDialog('abdal', 'Ah... ¡Quita, zorra! No me toques... eh, ¿Dónde estoy? No veo una mierda')
 writer.addDialog('freeman', 'Al parecer algún tipo de explosión detonó en la sala y se derrumbó parte del muro...')
 writer.addDialog('abdal', '¡No jodas! ¿Y mi tío-abuelo? Joder, a ver... ¿Habéis encontrado alguno el escritorio? En uno de los cajones tendría que haber linternas... el jefe siempre tenía alguna por si acaso')
